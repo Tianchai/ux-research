@@ -16,3 +16,11 @@
 .trash-container:hover > .far {
   display: none;
 }
+
+.social-container .fab {
+  transition-duration: 0.4s;
+}
+
+.social-container .fab:hover {
+  color: #ff6c00;
+}

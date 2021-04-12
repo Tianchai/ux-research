@@ -74,14 +74,39 @@
                       <a class="h7 text-primary cursor-pointer">Forgot password?</a>
                     </div>
                   </div>
-                  <button type="button" class="d-inline-block btn bg-atomic-tangerine text-white"
-                          @click="addStep(1)">
-                    Sign in
-                  </button>
-                  <button type="button" class="d-inline-block btn btn-outline-secondary ml-2"
-                          @click="customerDisplay = 'guest'">
-                    Cancel
-                  </button>
+                  <div class="row align-items-center">
+                    <div class="col-6 col-sm-auto">
+                      <button type="button" class="d-block d-sm-inline-block w-100 btn bg-atomic-tangerine text-white"
+                              @click="addStep(1)">
+                        Sign in
+                      </button>
+                    </div>
+                    <div class="col-6 col-sm-auto pl-0 mr-auto">
+                      <button type="button" class="d-block d-sm-inline-block w-100 btn btn-outline-secondary"
+                              @click="customerDisplay = 'guest'">
+                        Cancel
+                      </button>
+                    </div>
+                    <div class="col-12 col-sm-auto social-container mt-3 mt-sm-0 text-center">
+                      <span class="align-middle">Or sign in with</span>
+                      <i class="fab fa-google fa-2x align-middle cursor-pointer ml-2"
+                         data-toggle="modal" data-target="#social-sign-modal"></i>
+                      <i class="fab fa-facebook-square fa-2x align-middle cursor-pointer ml-2"
+                         data-toggle="modal" data-target="#social-sign-modal"></i>
+                    </div>
+                  </div>
+                  <div id="social-sign-modal" class="modal fade">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm">
+                      <div class="modal-content">
+                        <div class="modal-body">
+                          <button type="button" class="d-block btn bg-atomic-tangerine text-white mx-auto"
+                                  data-dismiss="modal" @click="addStep(1)">
+                            Sign in with social authenticator
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </template>
                 <template v-if="customerDisplay === 'create'">
                   <div class="row align-items-end mb-3">
@@ -102,14 +127,39 @@
                       <input type="password" class="form-control">
                     </div>
                   </div>
-                  <button type="button" class="d-inline-block btn bg-atomic-tangerine text-white"
-                          @click="addStep(1)">
-                    Create account
-                  </button>
-                  <button type="button" class="d-inline-block btn btn-outline-secondary ml-2"
-                          @click="customerDisplay = 'login'">
-                    Cancel
-                  </button>
+                  <div class="row align-items-center">
+                    <div class="col-6 col-sm-auto">
+                      <button type="button" class="d-block d-sm-inline-block w-100 btn bg-atomic-tangerine text-white"
+                              @click="addStep(1)">
+                        Create account
+                      </button>
+                    </div>
+                    <div class="col-6 col-sm-auto pl-0 mr-auto">
+                      <button type="button" class="d-block d-sm-inline-block w-100 btn btn-outline-secondary"
+                              @click="customerDisplay = 'guest'">
+                        Cancel
+                      </button>
+                    </div>
+                    <div class="col-12 col-sm-auto social-container mt-3 mt-sm-0 text-center">
+                      <span class="align-middle">Or create account with</span>
+                      <i class="fab fa-google fa-2x align-middle cursor-pointer ml-2"
+                         data-toggle="modal" data-target="#social-create-modal"></i>
+                      <i class="fab fa-facebook-square fa-2x align-middle cursor-pointer ml-2"
+                         data-toggle="modal" data-target="#social-create-modal"></i>
+                    </div>
+                  </div>
+                  <div id="social-create-modal" class="modal fade">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm">
+                      <div class="modal-content">
+                        <div class="modal-body">
+                          <button type="button" class="d-block btn bg-atomic-tangerine text-white mx-auto"
+                                  data-dismiss="modal" @click="addStep(1)">
+                            Create account with social authenticator
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </template>
               </accordion-card>
 
