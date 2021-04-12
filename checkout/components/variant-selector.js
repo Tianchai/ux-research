@@ -8,24 +8,31 @@ const variantSelector = `
         </tr>
         <template v-for="index in [1, 2]">
           <tr>
-            <td>Cat Food (4 kg)</td>
-            <td class="text-right w-1px text-nowrap">{{ variant[index] ? 1 : 0 }} out of 1</td>
-          </tr>
-          <tr v-if="variant[index]">
-            <td class="border-0 pt-0">
+            <td>
               <div class="row no-gutters">
                 <div class="col-auto">
-                  <div class="trash-container mr-3" @click="deleteVariant(index)">
-                    <i class="far fa-trash-alt align-middle text-danger"></i>
-                    <i class="fas fa-trash-alt align-middle text-danger"></i>
-                  </div>
+                  <img class="pr-3" src="assets/img/product-img.jpg" style="max-height: 60px; max-width: 60px" />
                 </div>
                 <div class="col">
-                  <span>Persia</span>
+                  <p class="mb-1">Cat Food (4 kg)</p>
+                  <div v-if="variant[index]" class="row no-gutters">
+                    <div class="col-auto">
+                      <div class="trash-container mr-2" @click="deleteVariant(index)">
+                        <i class="far fa-trash-alt align-middle text-danger"></i>
+                        <i class="fas fa-trash-alt align-middle text-danger"></i>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <span>Persia</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </td>
-            <td class="border-0 text-center w-1px text-nowrap pt-0">1</td>
+            <td class="text-right w-1px text-nowrap">
+              <p class="mb-1">{{ variant[index] ? 1 : 0 }} out of 1</p>
+              <p v-if="variant[index]" class="mb-0 text-center">1</p>
+            </td>
           </tr>
           <tr v-if="!variant[index]">
             <td class="border-0" colspan="2">
