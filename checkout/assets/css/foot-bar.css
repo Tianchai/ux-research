@@ -1,5 +1,7 @@
-#foot-bar {
-
+@media (max-width: 992px) {
+  #foot-bar {
+    padding-bottom: calc(80px + 1rem) !important;
+  }
 }
 
 #foot-bar .foot-img {

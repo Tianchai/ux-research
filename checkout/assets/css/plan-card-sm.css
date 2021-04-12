@@ -1,10 +1,6 @@
 #plan-card-sm {
-  bottom: 0; left: 0;
-  z-index: 10;
-}
-
-#plan-summary {
-  z-index: 5;
+  transition-duration: 0.4s;
+  left: 0; z-index: 10;
 }
 
 #plan-summary .circle-icon {
@@ -14,11 +10,6 @@
 
 #plan-summary .circle-icon .fas {
   vertical-align: -2px;
-}
-
-#plan-detail {
-  transition-duration: 0.4s;
-  left: 0; bottom: -900vh;
 }
 
 #plan-detail .plan-img {

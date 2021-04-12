@@ -1,11 +1,11 @@
 const accordionCard = `
   <div class="card accordion-card">
-    <div class="card-header bg-safety-orange" :class="{ 'cursor-pointer': isPointer, 'cursor-default': !isPointer }" @click="open">
-      <div class="circle-step d-inline-block border border-white rounded-circle text-center text-white mr-2">
-        <template v-if="isChecked"><i class="fas fa-check"></i></template>
+    <div class="card-header bg-white" :class="{ 'cursor-pointer': isPointer, 'cursor-default': !isPointer }" @click="open">
+      <div class="circle-step d-inline-block border border-secondary rounded-circle text-center mr-2" :class="{ 'bg-secondary': isChecked }">
+        <template v-if="isChecked"><i class="fas fa-check text-white"></i></template>
         <template v-else>{{ step }}</template>
       </div>
-      <span class="text-white collapsed">{{ title }}</span>
+      <span class="collapsed">{{ title }}</span>
     </div>
     <div :id="id" class="collapse" data-parent="#accordion">
       <div class="card-body">

@@ -1,1 +1,18 @@
+.trash-container {
+  width: 16px;
+  height: 16px;
+  text-align: center;
+  cursor: pointer;
+}
 
+.trash-container > .fas {
+  display: none;
+}
+
+.trash-container:hover > .fas {
+  display: inline-block;
+}
+
+.trash-container:hover > .far {
+  display: none;
+}

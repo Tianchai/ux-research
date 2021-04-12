@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="./assets/css/checkout-01.css">
   </head>
   <body>
-    <div id="app">
+    <div id="app" class="position-relative">
       <head-bar></head-bar>
       <div id="wrapper" class="container py-4">
         <div class="row">
@@ -114,80 +114,7 @@
               </accordion-card>
 
               <accordion-card step="2" id="variant" title="Variant" :current-step="step">
-                <table class="table">
-                  <tbody>
-                    <tr>
-                      <td class="border-0 text-primary">Products</td>
-                      <td class="border-0 text-primary text-right">Quantity</td>
-                    </tr>
-                    <tr>
-                      <td>Cat Food (4 kg)</td>
-                      <td class="text-right">1 out of 1</td>
-                    </tr>
-                    <tr>
-                      <td class="border-0" colspan="2">test</td>
-                    </tr>
-                    <tr>
-                      <td>Cat Food (4 kg) x1</td>
-                      <td class="text-right">0 out of 1</td>
-                    </tr>
-                    <tr>
-                      <td class="border-0" colspan="2">
-                        <div class="row no-gutters align-items-center rounded bg-light py-2 px-3">
-                          <div class="col-auto mr-auto">
-                            You can select 1 more
-                          </div>
-                          <div class="col-auto">
-                            <button type="button" class="btn bg-atomic-tangerine text-white"
-                                    data-toggle="modal" data-target="#variant-selector-modal">
-                              Add <i class="fas fa-plus pl-2"></i>
-                            </button>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <div id="variant-selector-modal" class="modal fade">
-                  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Select variant</h5>
-                        <button type="button" class="close" data-dismiss="modal">
-                          <i class="fas fa-times"></i>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <table class="table table-borderless m-0">
-                          <tr>
-                            <td class="align-middle">Species</td>
-                            <td>
-                              <select class="form-control">
-                                <option>Scottish float</option>
-                                <option>Persia</option>
-                                <option>Bengal</option>
-                              </select>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td class="align-middle">Quantity</td>
-                            <td>
-                              <input type="number" class="form-control">
-                            </td>
-                          </tr>
-                        </table>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Add</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <button type="button" class="btn bg-atomic-tangerine text-white mt-2"
-                        @click="addStep(2)">
-                  Continue
-                </button>
+                <variant-selector @next="addStep(2)"></variant-selector>
               </accordion-card>
 
               <accordion-card step="3" id="shipping" title="Shipping" :current-step="step">
@@ -207,7 +134,11 @@
                     </template>
                   </div>
                 </div>
-                <button type="button" class="btn bg-atomic-tangerine text-white mt-2"
+                <button type="button" class="d-block d-sm-none w-100 btn bg-atomic-tangerine text-white mt-2 mx-auto"
+                        @click="addStep(3)">
+                  Continue
+                </button>
+                <button type="button" class="d-none d-sm-block btn bg-atomic-tangerine text-white mt-2 mx-auto"
                         @click="addStep(3)">
                   Continue
                 </button>
@@ -221,7 +152,12 @@
                              :last-four-digits="card.lastFourDigits"
                              :expire="card.expire"></credit-card>
                 <credit-card-adder></credit-card-adder>
-                <button type="button" class="btn bg-atomic-tangerine text-white mt-2">
+                <button type="button" class="d-block d-sm-none w-100 btn bg-atomic-tangerine text-white mt-2 mx-auto"
+                        @click="addStep(4)">
+                  Pay {{ plan.total }} {{ plan.frequency }}
+                </button>
+                <button type="button" class="d-none d-sm-block btn bg-atomic-tangerine text-white mt-2 mx-auto"
+                        @click="addStep(4)">
                   Pay {{ plan.total }} {{ plan.frequency }}
                 </button>
               </accordion-card>
@@ -259,6 +195,7 @@
   <script src="./components/accordion-card.js"></script>
   <script src="./components/plan-card.js"></script>
   <script src="./components/plan-card-sm.js"></script>
+  <script src="./components/variant-selector.js"></script>
   <script src="./components/credit-card.js"></script>
   <script src="./components/credit-card-adder.js"></script>
   <script>
@@ -344,6 +281,7 @@
               break;
             }
             case 4: {
+              window.location = './success.html';
               break;
             }
           }

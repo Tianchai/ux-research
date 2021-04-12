@@ -8,16 +8,10 @@
 }
 
 #app #wrapper {
-  min-height: calc(100vh - 60px - 368px);
+  min-height: calc(100vh - 60px - 288px);
 }
 
 @media (min-width: 576px) {
-  #app #wrapper {
-    min-height: calc(100vh - 60px - 288px);
-  }
-}
-
-@media (min-width: 992px) {
   #app #wrapper {
     min-height: calc(100vh - 60px - 208px);
   }

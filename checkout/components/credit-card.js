@@ -1,5 +1,5 @@
 const creditCard = `
-  <div class="credit-card row no-gutters align-items-center border rounded py-2 px-3 mb-3 max-w-400px">
+  <div class="credit-card row no-gutters align-items-center border rounded py-2 px-3 mb-3 mx-auto max-w-400px">
     <div class="col-auto cursor-pointer" @click="cardClicked">
       <input type="radio" class="ml-0" name="credit-card" :value="cardValue">
     </div>
@@ -25,9 +25,7 @@ const creditCard = `
       </div>
     </div>
     <div class="col-auto">
-      <div :id="trashId" class="trash-container ml-3" data-toggle="popover"
-           data-container="body" data-trigger="click" data-placement="top"
-           data-title="Confirm to delete this card?" data-content="Yes / No">
+      <div :id="trashId" class="trash-container ml-3">
         <i class="far fa-trash-alt align-top text-danger"></i>
         <i class="fas fa-trash-alt align-top text-danger"></i>
       </div>

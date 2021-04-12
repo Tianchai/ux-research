@@ -1,6 +1,6 @@
 const planCard = `
   <div id="plan-card" class="card shadow position-sticky w-400px" style="top: calc(1.5rem + 60px);">
-    <div class="card-header text-center text-white bg-safety-orange">
+    <div class="card-header text-center">
       Plan Info
     </div>
     <div class="card-body">

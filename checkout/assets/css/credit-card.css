@@ -7,22 +7,3 @@
   width: auto;
   max-height: 20px;
 }
-
-.credit-card .trash-container {
-  width: 16px;
-  height: 16px;
-  text-align: center;
-  cursor: pointer;
-}
-
-.credit-card .trash-container > .fas {
-  display: none;
-}
-
-.credit-card .trash-container:hover > .fas {
-  display: inline-block;
-}
-
-.credit-card .trash-container:hover > .far {
-  display: none;
-}

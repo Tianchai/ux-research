@@ -1,10 +1,28 @@
 const planCardSm = `
-  <div id="plan-card-sm" class="d-lg-none position-fixed w-100">
-    <div id="plan-detail" ref="planDetail"
-         class="position-absolute bg-white border-top w-100"
-         :style="{ bottom: bottom }">
-      <div class="container pt-3">
-        <h4 class="text-center">Plan Info</h4>
+  <div id="plan-card-sm" class="d-lg-none position-fixed w-100" :style="{ bottom: bottom }">
+    <div id="plan-summary" class="position-relative bg-safety-orange w-100">
+      <div class="container py-3">
+        <div class="row align-items-center" @click="showDetail = !showDetail">
+          <div class="col-auto">
+            <div class="circle-icon d-inline-block border border-white rounded-circle text-center">
+               <i class="fas fa-sm text-white" :class="{
+                 'fa-chevron-up': !showDetail,
+                 'fa-chevron-down': showDetail
+               }"></i>
+            </div>
+          </div>
+          <div class="col">
+            <p class="h5 m-0 text-white">{{ planName }}</p>
+            <span class="h7 text-white">Click for detail</span>
+          </div>
+          <div class="col-auto">
+            <span class="h5 text-white">{{ total }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="plan-detail" ref="planDetail" class="bg-white w-100">
+      <div class="container py-3">
         <img class="plan-img d-block mx-auto " src="assets/img/plan-img.jpg" />
         <table class="table table-borderless">
           <tbody>
@@ -37,27 +55,7 @@ const planCardSm = `
         </table>
       </div>
     </div>
-    <div id="plan-summary" class="position-relative bg-white w-100">
-      <div class="container py-3">
-        <div class="row align-items-center">
-          <div class="col-auto">
-            <div class="circle-icon d-inline-block border rounded-circle text-center"
-                 @click="showDetail = !showDetail">
-               <i class="fas fa-sm" :class="{
-                 'fa-chevron-up': !showDetail,
-                 'fa-chevron-down': showDetail
-               }"></i>
-            </div>
-          </div>
-          <div class="col">
-            <span class="h5">{{ planName }}</span>
-          </div>
-          <div class="col-auto">
-            <span class="h5 text-safety-orange">{{ total }}</span>
-          </div>
-        </div>
-      </div>
-    </div>
+    
   </div>
 `;
 
@@ -81,7 +79,7 @@ Vue.component('plan-card-sm', {
   computed: {
     bottom() {
       if (!this.detailHeight) return '-100vh';
-      return this.showDetail ? '64px' : `${64 - this.detailHeight}px`
+      return this.showDetail ? '0px' : `-${this.detailHeight}px`
     }
   },
   watch: {
