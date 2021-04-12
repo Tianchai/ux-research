@@ -1,0 +1,9 @@
+#head-bar {
+  height: 60px;
+  top: 0;
+  z-index: 1030;
+}
+
+#head-bar .logo-img {
+  max-height: 40px;
+}

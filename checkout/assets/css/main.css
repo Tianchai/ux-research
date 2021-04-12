@@ -1,0 +1,39 @@
+#app {
+  min-height: 100vh;
+  /*position: relative;*/
+  background-color: #f3f3f4;
+  color: #6b7280;
+  font-family: 'Kanit';
+  /*overflow: hidden;*/
+}
+
+#app #wrapper {
+  min-height: calc(100vh - 60px - 288px);
+}
+
+@media (min-width: 576px) {
+  #app #wrapper {
+    min-height: calc(100vh - 60px - 208px);
+  }
+}
+
+.table td {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.h7 { font-size: 0.85rem; }
+
+.w-400px { width: 400px; }
+.max-w-400px { max-width: 400px; }
+
+.bg-safety-orange { background-color: #ff6c00; }
+.bg-atomic-tangerine { background-color: #ffa360; }
+.bg-romantic { background-color: #ffc89f; }
+
+.text-safety-orange { color: #ff6c00; }
+
+.border-top-width-2px { border-top-width: 2px; }
+
+.cursor-default { cursor: default; }
+.cursor-pointer { cursor: pointer; }

@@ -1,0 +1,16 @@
+#foot-bar {
+
+}
+
+#foot-bar .foot-img {
+  max-height: 40px;
+}
+
+#foot-bar a {
+  color: #6b7280;
+  text-decoration: none;
+}
+
+#foot-bar a:hover {
+  color: #1890ff;
+}
