@@ -23,7 +23,7 @@ const variantSelector = `
                       </div>
                     </div>
                     <div class="col">
-                      <span>Persia</span>
+                      <span>{{ index === 1 ? 'Persia' : 'Bengal' }}</span>
                     </div>
                   </div>
                 </div>
