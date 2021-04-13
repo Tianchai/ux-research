@@ -1,0 +1,345 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>enScribe | Style Guidelines</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/head-bar.css">
+    <link rel="stylesheet" href="./assets/css/foot-bar.css">
+    <link rel="stylesheet" href="./assets/css/accordion-card.css">
+    <link rel="stylesheet" href="./assets/css/plan-card.css">
+    <link rel="stylesheet" href="./assets/css/plan-card-sm.css">
+    <link rel="stylesheet" href="./assets/css/credit-card.css">
+    <link rel="stylesheet" href="./assets/css/credit-card-adder.css">
+    <link rel="stylesheet" href="./assets/css/checkout-01.css">
+  </head>
+  <body>
+    <div id="app" class="position-relative">
+      <head-bar></head-bar>
+      <div id="wrapper" class="container py-4">
+        <div class="row">
+          <div class="col">
+            <div id="accordion" class="accordion shadow">
+
+              <accordion-card step="1" id="customer" title="Customer" :current-step="step">
+                <template v-if="customerDisplay === 'guest'">
+                  <span class="h7">
+                    Checking out as a <b>Guest</b>? You'll be able to save your details to create an account with us later.
+                  </span>
+                  <div class="row align-items-end mt-3">
+                    <div class="col-12 col-sm mb-3">
+                      <label class="h7">Email Address</label>
+                      <input type="text" class="form-control">
+                      <div class="invalid-feedback">Please provide a valid email address.</div>
+                    </div>
+                    <div class="col-auto mb-3">
+                      <button type="button" class="btn bg-atomic-tangerine text-white"
+                              @click="addStep(1)">
+                        Continue as guest
+                      </button>
+                    </div>
+                  </div>
+                  <span class="h7">
+                    Already have an account?
+                    <a class="text-primary cursor-pointer"
+                       @click="customerDisplay = 'login'">
+                      Sign in now
+                    </a>
+                  </span>
+                </template>
+                <template v-if="customerDisplay === 'login'">
+                  <span class="h7">
+                    Don’t have an account?
+                    <a class="text-primary cursor-pointer"
+                       @click="customerDisplay = 'create'">
+                      Create an account
+                    </a>
+                    to continue.
+                  </span>
+                  <div class="row align-items-end my-3">
+                    <div class="col-12">
+                      <label class="h7">Email Address</label>
+                      <input type="text" class="form-control">
+                      <div class="invalid-feedback">Please provide a valid email address.</div>
+                    </div>
+                    <div class="col-12">
+                      <label class="h7">Password</label>
+                      <input type="password" class="form-control">
+                      <div class="invalid-feedback">Please provide a valid password.</div>
+                    </div>
+                    <div class="col-12">
+                      <a class="h7 text-primary cursor-pointer">Forgot password?</a>
+                    </div>
+                  </div>
+                  <div class="row align-items-center">
+                    <div class="col-6 col-sm-auto">
+                      <button type="button" class="d-block d-sm-inline-block w-100 btn bg-atomic-tangerine text-white"
+                              @click="addStep(1)">
+                        Sign in
+                      </button>
+                    </div>
+                    <div class="col-6 col-sm-auto pl-0 mr-auto">
+                      <button type="button" class="d-block d-sm-inline-block w-100 btn btn-outline-secondary"
+                              @click="customerDisplay = 'guest'">
+                        Cancel
+                      </button>
+                    </div>
+                    <div class="col-12 col-sm-auto social-container mt-3 mt-sm-0 text-center">
+                      <span class="align-middle">Or sign in with</span>
+                      <i class="fab fa-google fa-2x align-middle cursor-pointer ml-2"
+                         data-toggle="modal" data-target="#social-sign-modal"></i>
+                      <i class="fab fa-facebook-square fa-2x align-middle cursor-pointer ml-2"
+                         data-toggle="modal" data-target="#social-sign-modal"></i>
+                    </div>
+                  </div>
+                  <div id="social-sign-modal" class="modal fade">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                      <div class="modal-content">
+                        <div class="modal-body">
+                          <button type="button" class="d-block btn bg-atomic-tangerine text-white mx-auto"
+                                  data-dismiss="modal" @click="addStep(1)">
+                            Sign in with social authenticator
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </template>
+                <template v-if="customerDisplay === 'create'">
+                  <div class="row align-items-end mb-3">
+                    <div class="col-12 col-sm-6">
+                      <label class="h7">First name</label>
+                      <input type="text" class="form-control">
+                    </div>
+                    <div class="col-12 col-sm-6">
+                      <label class="h7">Last name</label>
+                      <input type="text" class="form-control">
+                    </div>
+                    <div class="col-12">
+                      <label class="h7">Email address</label>
+                      <input type="password" class="form-control">
+                    </div>
+                    <div class="col-12">
+                      <label class="h7">Password</label>
+                      <input type="password" class="form-control">
+                    </div>
+                  </div>
+                  <div class="row align-items-center">
+                    <div class="col-6 col-sm-auto">
+                      <button type="button" class="d-block d-sm-inline-block w-100 btn bg-atomic-tangerine text-white"
+                              @click="addStep(1)">
+                        Create account
+                      </button>
+                    </div>
+                    <div class="col-6 col-sm-auto pl-0 mr-auto">
+                      <button type="button" class="d-block d-sm-inline-block w-100 btn btn-outline-secondary"
+                              @click="customerDisplay = 'guest'">
+                        Cancel
+                      </button>
+                    </div>
+                    <div class="col-12 col-sm-auto social-container mt-3 mt-sm-0 text-center">
+                      <span class="align-middle">Or create account with</span>
+                      <i class="fab fa-google fa-2x align-middle cursor-pointer ml-2"
+                         data-toggle="modal" data-target="#social-create-modal"></i>
+                      <i class="fab fa-facebook-square fa-2x align-middle cursor-pointer ml-2"
+                         data-toggle="modal" data-target="#social-create-modal"></i>
+                    </div>
+                  </div>
+                  <div id="social-create-modal" class="modal fade">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                      <div class="modal-content">
+                        <div class="modal-body">
+                          <button type="button" class="d-block btn bg-atomic-tangerine text-white mx-auto"
+                                  data-dismiss="modal" @click="addStep(1)">
+                            Create account with social authenticator
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </template>
+              </accordion-card>
+
+              <accordion-card step="2" id="variant" title="Variant" :current-step="step">
+                <variant-selector @next="addStep(2)"></variant-selector>
+              </accordion-card>
+
+              <accordion-card step="3" id="shipping" title="Shipping" :current-step="step">
+                <div class="row">
+                  <div v-for="input in shippingInputs" class="col-12 col-sm-6 mb-2">
+                    <label class="h7">
+                      {{ input.label }}
+                      <span v-if="input.required" class="text-danger">*</span>
+                    </label>
+                    <template v-if="input.type === 'text'">
+                      <input type="text" class="form-control">
+                    </template>
+                    <template v-if="input.type === 'select'">
+                      <select class="form-control">
+                        <option>Thailand</option>
+                      </select>
+                    </template>
+                  </div>
+                </div>
+                <button type="button" class="d-block d-sm-none w-100 btn bg-atomic-tangerine text-white mt-2 mx-auto"
+                        @click="addStep(3)">
+                  Continue
+                </button>
+                <button type="button" class="d-none d-sm-block btn bg-atomic-tangerine text-white mt-2 mx-auto"
+                        @click="addStep(3)">
+                  Continue
+                </button>
+              </accordion-card>
+
+              <accordion-card step="4" id="payment" title="Payment" :current-step="step">
+                <credit-card v-for="(card, index) in creditCards"
+                             :key="index"
+                             :index="index"
+                             :brand="card.brand"
+                             :last-four-digits="card.lastFourDigits"
+                             :expire="card.expire"></credit-card>
+                <credit-card-adder></credit-card-adder>
+                <button type="button" class="d-block d-sm-none w-100 btn bg-atomic-tangerine text-white mt-2 mx-auto"
+                        @click="addStep(4)">
+                  Pay {{ plan.total }} {{ plan.frequency }}
+                </button>
+                <button type="button" class="d-none d-sm-block btn bg-atomic-tangerine text-white mt-2 mx-auto"
+                        @click="addStep(4)">
+                  Pay {{ plan.total }} {{ plan.frequency }}
+                </button>
+              </accordion-card>
+
+            </div>
+          </div>
+          <div class="col-auto d-none d-lg-block">
+            <plan-card :plan-name="plan.planName"
+                       :plan-description="plan.planDescription"
+                       :frequency="plan.frequency"
+                       :duration="plan.duration"
+                       :product-list="plan.productList"
+                       :total="plan.total"></plan-card>
+          </div>
+        </div>
+      </div>
+      <foot-bar></foot-bar>
+      <plan-card-sm :plan-name="plan.planName"
+                    :plan-description="plan.planDescription"
+                    :frequency="plan.frequency"
+                    :duration="plan.duration"
+                    :product-list="plan.productList"
+                    :total="plan.total"></plan-card-sm>
+    </div>
+  </body>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+  <script src="https://kit.fontawesome.com/77a685d805.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="https://unpkg.com/vuelidate@0.7.6/dist/vuelidate.min.js"></script>
+  <script src="https://unpkg.com/vuelidate@0.7.6/dist/validators.min.js"></script>
+  <script src="./components/head-bar.js"></script>
+  <script src="./components/foot-bar.js"></script>
+  <script src="./components/accordion-card-orange.js"></script>
+  <script src="./components/plan-card-orange.js"></script>
+  <script src="./components/plan-card-sm-white.js"></script>
+  <script src="./components/variant-selector.js"></script>
+  <script src="./components/credit-card.js"></script>
+  <script src="./components/credit-card-adder.js"></script>
+  <script>
+    Vue.use(window.vuelidate.default)
+    const { required, minLength } = window.validators
+    new Vue({
+      el: '#app',
+      validations: {
+        form: {
+          required,
+          minLength: minLength(5)
+        }
+      },
+      data: {
+        step: 0,
+        customerDisplay: 'guest',
+        plan: {
+          planName: 'Double Premium',
+          planDescription: 'เพียง subscribe รายปี (12 เดือน) กับ Justino วันนี้' +
+            'สินค้าก็จะมาอยู่หน้าบ้านของคุณในราคาที่ประหยัดลดสูงสุดถึง 12% จากราคาปกติ',
+          frequency: 'Every month',
+          duration: '12 months',
+          productList: [
+            { name: 'Cat Food (4 kg) x1', price: '฿500' },
+            { name: 'Cat Food (4 kg) x1', price: '฿500' },
+          ],
+          total: '฿1,000',
+        },
+        form: {
+          customer: {
+
+          },
+          variant: {
+
+          },
+          shipping: {
+            firstName: null,
+            lastName: null,
+            title: null,
+            address: null,
+            subdistrict: null,
+            district: null,
+            province: null,
+            zipCode: null,
+            country: 'Thailand',
+            phoneNo: null,
+          },
+          payment: {
+
+          }
+        },
+        shippingInputs: [
+          { key: 'firstName', label: 'First name', type: 'text', required: true },
+          { key: 'lastName', label: 'Last name', type: 'text', required: true },
+          { key: 'title', label: 'Title', type: 'text', required: false },
+          { key: 'address', label: 'Address', type: 'text', required: true },
+          { key: 'subdistrict', label: 'Subdistrict', type: 'text', required: true },
+          { key: 'district', label: 'District', type: 'text', required: true },
+          { key: 'province', label: 'Province', type: 'text', required: true },
+          { key: 'zipCode', label: 'Zip Code', type: 'text', required: true },
+          { key: 'country', label: 'Country', type: 'select', required: true },
+          { key: 'phoneNo', label: 'Phone Numner', type: 'text', required: true },
+        ],
+        creditCards: [
+          { brand: 'visa', lastFourDigits: '4 2 4 2', expire: '5/2022' },
+          { brand: 'mastercard', lastFourDigits: '7 4 7 4', expire: '7/2024' },
+        ]
+      },
+      methods: {
+        addStep(fromStep) {
+          if (this.step < fromStep) this.step++;
+          switch (fromStep) {
+            case 1: {
+              $('#variant').collapse('show');
+              break;
+            }
+            case 2: {
+              $('#shipping').collapse('show');
+              break;
+            }
+            case 3: {
+              $('#payment').collapse('show');
+              break;
+            }
+            case 4: {
+              window.location = './success.html';
+              break;
+            }
+          }
+        },
+        toggleAccordion() {
+
+        },
+      },
+    });
+  </script>
+</html>
