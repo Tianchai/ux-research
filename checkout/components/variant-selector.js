@@ -75,12 +75,12 @@ const variantSelector = `
               <tr>
                 <td class="align-middle">จำนวน</td>
                 <td>
-                  <input type="number" v-model="quantity" class="form-control" @input="onChange($event)">
+                  <input type="number" v-model="quantity" class="form-control" @input="onInput($event)">
                 </td>
               </tr>
             </table>
             <button type="button" class="d-block btn bg-atomic-tangerine text-white mt-3 mx-auto"
-                    data-dismiss="modal" @click="closeModal" :disabled="[null, ''].includes(quantity)">
+                    data-dismiss="modal" @click="closeModal" :disabled="quantity !== 1">
               ถัดไป
             </button>
           </div>
@@ -136,10 +136,13 @@ Vue.component('variant-selector', {
         this.quantity = null;
       }, 0);
     },
-    onChange(event) {
-      event.preventDefault();
-      console.log('event', event);
-      if (![0, 1].includes(parseInt(event.data))) return;
+    onInput() {
+      try {
+        if (this.quantity > 1) this.quantity = 1;
+        if (this.quantity < 0) this.quantity = 0;
+      } catch (e) {
+        this.quantity = 0;
+      }
     },
   },
 });
