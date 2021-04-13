@@ -24,11 +24,11 @@
           <div class="col">
             <div id="accordion" class="accordion shadow">
 
-              <accordion-card step="1" id="variant" title="Variant" :current-step="step">
+              <accordion-card step="1" id="variant" title="ตัวเลือกสินค้า" :current-step="step">
                 <variant-selector @next="addStep(1)"></variant-selector>
               </accordion-card>
 
-              <accordion-card step="2" id="shipping" title="Shipping" :current-step="step">
+              <accordion-card step="2" id="shipping" title="การจัดส่งสินค้า" :current-step="step">
                 <div class="row">
                   <div v-for="input in shippingInputs" class="col-12 col-sm-6 mb-2">
                     <label class="h7">
@@ -40,22 +40,22 @@
                     </template>
                     <template v-if="input.type === 'select'">
                       <select class="form-control">
-                        <option>Thailand</option>
+                        <option>ประเทศไทย</option>
                       </select>
                     </template>
                   </div>
                 </div>
                 <button type="button" class="d-block d-sm-none w-100 btn bg-atomic-tangerine text-white mt-2 mx-auto"
                         @click="addStep(2)">
-                  Continue
+                  ถัดไป
                 </button>
                 <button type="button" class="d-none d-sm-block btn bg-atomic-tangerine text-white mt-2 mx-auto"
                         @click="addStep(2)">
-                  Continue
+                  ถัดไป
                 </button>
               </accordion-card>
 
-              <accordion-card step="3" id="payment" title="Payment" :current-step="step">
+              <accordion-card step="3" id="payment" title="ชำระเงิน" :current-step="step">
                 <credit-card v-for="(card, index) in creditCards"
                              :key="index"
                              :index="index"
@@ -127,11 +127,11 @@
           planName: 'Double Premium',
           planDescription: 'เพียง subscribe รายปี (12 เดือน) กับ Justino วันนี้' +
             'สินค้าก็จะมาอยู่หน้าบ้านของคุณในราคาที่ประหยัดลดสูงสุดถึง 12% จากราคาปกติ',
-          frequency: 'Every month',
-          duration: '12 months',
+          frequency: 'ทุกเดือน',
+          duration: '12 เดือน',
           productList: [
-            { name: 'Cat Food (4 kg) x1', price: '฿500' },
-            { name: 'Cat Food (4 kg) x1', price: '฿500' },
+            { name: 'อาหารแมวแบบเม็ด (4 กก.) x1', price: '฿700' },
+            { name: 'โปรตีนเสริมสำหรับแมว x1', price: '฿300' },
           ],
           total: '฿1,000',
         },
@@ -151,7 +151,7 @@
             district: null,
             province: null,
             zipCode: null,
-            country: 'Thailand',
+            country: 'ประเทศไทย',
             phoneNo: null,
           },
           payment: {
@@ -159,18 +159,18 @@
           }
         },
         shippingInputs: [
-          { key: 'firstName', label: 'First name', type: 'text', required: true },
-          { key: 'lastName', label: 'Last name', type: 'text', required: true },
-          { key: 'title', label: 'Title', type: 'text', required: false },
-          { key: 'address', label: 'Address', type: 'text', required: true },
-          { key: 'subdistrict', label: 'Subdistrict', type: 'text', required: true },
-          { key: 'district', label: 'District', type: 'text', required: true },
-          { key: 'province', label: 'Province', type: 'text', required: true },
-          { key: 'zipCode', label: 'Zip Code', type: 'text', required: true },
-          { key: 'country', label: 'Country', type: 'select', required: true },
-          { key: 'phoneNo', label: 'Phone Number', type: 'text', required: true },
+          { key: 'firstName', label: 'ชื่อ', type: 'text', required: true },
+          { key: 'lastName', label: 'นามสกุล', type: 'text', required: true },
+          { key: 'title', label: 'คำนำหน้า', type: 'text', required: false },
+          { key: 'address', label: 'ที่อยู่', type: 'text', required: true },
+          { key: 'subdistrict', label: 'ตำบล/แขวง', type: 'text', required: true },
+          { key: 'district', label: 'อำเภอ/เขต', type: 'text', required: true },
+          { key: 'province', label: 'จังหวัด', type: 'text', required: true },
+          { key: 'zipCode', label: 'รหัสไปรษณีย์', type: 'text', required: true },
+          { key: 'country', label: 'ประเทศ', type: 'select', required: true },
+          { key: 'phoneNo', label: 'โทรศัพท์มือถือ', type: 'text', required: true },
           { key: 'email', label: 'Email', type: 'text', required: true },
-          { key: 'emailConfirm', label: 'Retype Email', type: 'text', required: true },
+          { key: 'emailConfirm', label: 'ยืนยัน Email', type: 'text', required: true },
         ],
         creditCards: [
           { brand: 'visa', lastFourDigits: '4 2 4 2', expire: '5/2022' },

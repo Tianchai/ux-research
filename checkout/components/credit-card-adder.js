@@ -3,13 +3,13 @@ const creditCardAdder = `
        class="row no-gutters justify-content-center align-items-center border rounded py-2 px-3 mb-3 mx-auto max-w-400px cursor-pointer">
     <div class="col-auto">
       <i class="fas fa-plus pr-2"></i>
-      <span>Add credit card</span>
+      <span>เพิ่มบัตรเครดิต/เดบิต</span>
     </div>
     <div id="credit-card-adder-modal" class="modal fade">
       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Add credit/debit card</h5>
+            <h5 class="modal-title" id="exampleModalLabel">เพิ่มบัตรเครดิต/เดบิต</h5>
             <button type="button" class="close" data-dismiss="modal">
               <i class="fas fa-times"></i>
             </button>
@@ -26,13 +26,13 @@ const creditCardAdder = `
                 </template>
                 <template v-if="input.type === 'select'">
                   <select class="form-control">
-                    <option>Thailand</option>
+                    <option>ประเทศไทย</option>
                   </select>
                 </template>
               </div>
               <div class="col-12 my-2">
                 <button type="button" class="w-100 btn bg-atomic-tangerine text-white mt-2 mx-auto" data-dismiss="modal">
-                  Continue
+                  เพิ่ม
                 </button>
               </div>
               <div class="col-12 text-center mt-3">
@@ -52,9 +52,9 @@ Vue.component('credit-card-adder', {
   data() {
     return {
       creditCardInputs: [
-        { key: 'cardNo', label: 'Card number', type: 'text', required: true, isHalf: false },
-        { key: 'name', label: 'Name on card', type: 'text', required: true, isHalf: false },
-        { key: 'expire', label: 'Expiry date', type: 'text', required: true, isHalf: true },
+        { key: 'cardNo', label: 'หมายเลขบัตร', type: 'text', required: true, isHalf: false },
+        { key: 'name', label: 'ชื่อหน้าบัตร', type: 'text', required: true, isHalf: false },
+        { key: 'expire', label: 'วันหมดอายุ', type: 'text', required: true, isHalf: true },
         { key: 'cvv', label: 'CVV', type: 'text', required: true, isHalf: true },
       ],
     }

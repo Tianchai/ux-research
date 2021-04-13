@@ -13,7 +13,7 @@ const planCardSm = `
           </div>
           <div class="col">
             <p class="h5 m-0 text-white">{{ planName }}</p>
-            <span class="h7 text-white">Click for detail</span>
+            <span class="h7 text-white">ดูรายละเอียด</span>
           </div>
           <div class="col-auto">
             <span class="h5 text-white">{{ total }}</span>
@@ -27,15 +27,15 @@ const planCardSm = `
         <table class="table table-borderless">
           <tbody>
             <tr>
-              <td class="text-nowrap font-weight-bold">Plan Description</td>
+              <td class="text-nowrap font-weight-bold">รายละเอียดแผน</td>
               <td>{{ planDescription }}</td>
             </tr>
             <tr>
-              <td class="text-nowrap font-weight-bold">Frequency</td>
+              <td class="text-nowrap font-weight-bold">รอบการจัดส่งสินค้า</td>
               <td>{{ frequency }}</td>
             </tr>
             <tr>
-              <td class="text-nowrap font-weight-bold">Duration</td>
+              <td class="text-nowrap font-weight-bold">ระยะเวลา</td>
               <td>{{ duration }}</td>
             </tr>
           </tbody>
@@ -44,8 +44,8 @@ const planCardSm = `
         <table class="table m-0">
           <tbody>
             <tr>
-              <td class="border-0 text-primary">Product List</td>
-              <td class="border-0 text-primary text-right">Price</td>
+              <td class="border-0 text-primary">รายการสินค้า</td>
+              <td class="border-0 text-primary text-right">ราคา</td>
             </tr>
             <tr v-for="(product, index) in productList" :key="index">
               <td>{{ product.name }}</td>

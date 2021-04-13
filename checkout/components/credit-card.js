@@ -19,7 +19,7 @@ const creditCard = `
             <img class="card-img-sm d-sm-none" :src="brandImg">
           </div>
           <div class="col-auto">
-            <span class="h7">Expire: {{ expire }}</span>
+            <span class="h7">หมดอายุ {{ expire }}</span>
           </div>
         </div>
       </div>

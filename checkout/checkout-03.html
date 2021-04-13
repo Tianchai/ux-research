@@ -41,68 +41,68 @@
                 <template v-if="step <= 1">
                   <template v-if="customerDisplay === 'guest'">
                   <span class="h7">
-                    Checking out as a <b>Guest</b>? You'll be able to save your details to create an account with us later.
+                    กรุณาระบุ Email ของท่านเพื่อการใช้งานในอนาคต
                   </span>
                   <div class="row align-items-end mt-3">
                     <div class="col-12 col-sm mb-3">
-                      <label class="h7">Email Address</label>
+                      <label class="h7">Email</label>
                       <input type="text" class="form-control">
                       <div class="invalid-feedback">Please provide a valid email address.</div>
                     </div>
                     <div class="col-auto mb-3">
                       <button type="button" class="btn bg-atomic-tangerine text-white"
                               @click="addStep(1)">
-                        Continue as guest
+                        ซื้อสินค้าด้วย Email นี้
                       </button>
                     </div>
                   </div>
                   <span class="h7">
-                    Already have an account?
+                    คุณมีบัญชีอยู่แล้ว?
                     <a class="text-primary cursor-pointer"
                        @click="customerDisplay = 'login'">
-                      Sign in now
+                      ลงชื่อเข้าใช้ตอนนี้
                     </a>
                   </span>
                 </template>
                   <template v-if="customerDisplay === 'login'">
                     <span class="h7">
-                      Don’t have an account?
+                      ต้องการสร้างบัญชีใหม่?
                       <a class="text-primary cursor-pointer"
                          @click="customerDisplay = 'create'">
-                        Create an account
+                        สร้างบัญชี
                       </a>
-                      to continue.
+                      ของคุณเพื่อดำเนินการต่อ
                     </span>
                     <div class="row align-items-end my-3">
                       <div class="col-12">
-                        <label class="h7">Email Address</label>
+                        <label class="h7">Email</label>
                         <input type="text" class="form-control">
                         <div class="invalid-feedback">Please provide a valid email address.</div>
                       </div>
                       <div class="col-12">
-                        <label class="h7">Password</label>
+                        <label class="h7">รหัสผ่าน</label>
                         <input type="password" class="form-control">
                         <div class="invalid-feedback">Please provide a valid password.</div>
                       </div>
                       <div class="col-12">
-                        <a class="h7 text-primary cursor-pointer">Forgot password?</a>
+                        <a class="h7 text-primary cursor-pointer">ลืมรหัสผ่าน?</a>
                       </div>
                     </div>
                     <div class="row align-items-center">
                       <div class="col-6 col-sm-auto">
                         <button type="button" class="d-block d-sm-inline-block w-100 btn bg-atomic-tangerine text-white"
                                 @click="addStep(1)">
-                          Sign in
+                          ลงชื่อใช้งาน
                         </button>
                       </div>
                       <div class="col-6 col-sm-auto pl-0 mr-auto">
                         <button type="button" class="d-block d-sm-inline-block w-100 btn btn-outline-secondary"
                                 @click="customerDisplay = 'guest'">
-                          Cancel
+                          ยกเลิก
                         </button>
                       </div>
                       <div class="col-12 col-sm-auto social-container mt-3 mt-sm-0 text-center">
-                        <span class="align-middle">Or sign in with</span>
+                        <span class="align-middle">หรือลงชื่อเข้าใข้ด้วย</span>
                         <i class="fab fa-google fa-2x align-middle cursor-pointer ml-2"
                            data-toggle="modal" data-target="#social-sign-modal"></i>
                         <i class="fab fa-facebook-square fa-2x align-middle cursor-pointer ml-2"
@@ -115,7 +115,7 @@
                           <div class="modal-body">
                             <button type="button" class="d-block btn bg-atomic-tangerine text-white mx-auto"
                                     data-dismiss="modal" @click="addStep(1)">
-                              Sign in with social authenticator
+                              ลงชื่อใช้งานด้วย Social authenticator
                             </button>
                           </div>
                         </div>
@@ -125,19 +125,19 @@
                   <template v-if="customerDisplay === 'create'">
                     <div class="row align-items-end mb-3">
                       <div class="col-12 col-sm-6">
-                        <label class="h7">First name</label>
+                        <label class="h7">ชื่อ</label>
                         <input type="text" class="form-control">
                       </div>
                       <div class="col-12 col-sm-6">
-                        <label class="h7">Last name</label>
+                        <label class="h7">นามสกุล</label>
                         <input type="text" class="form-control">
                       </div>
                       <div class="col-12">
-                        <label class="h7">Email address</label>
+                        <label class="h7">Email</label>
                         <input type="password" class="form-control">
                       </div>
                       <div class="col-12">
-                        <label class="h7">Password</label>
+                        <label class="h7">รหัสผ่าน</label>
                         <input type="password" class="form-control">
                       </div>
                     </div>
@@ -145,17 +145,17 @@
                       <div class="col-6 col-sm-auto">
                         <button type="button" class="d-block d-sm-inline-block w-100 btn bg-atomic-tangerine text-white"
                                 @click="addStep(1)">
-                          Create account
+                          สร้างบัญชี
                         </button>
                       </div>
                       <div class="col-6 col-sm-auto pl-0 mr-auto">
                         <button type="button" class="d-block d-sm-inline-block w-100 btn btn-outline-secondary"
-                                @click="customerDisplay = 'guest'">
-                          Cancel
+                                @click="customerDisplay = 'login'">
+                          ยกเลิก
                         </button>
                       </div>
                       <div class="col-12 col-sm-auto social-container mt-3 mt-sm-0 text-center">
-                        <span class="align-middle">Or create account with</span>
+                        <span class="align-middle">หรือสร้างบัญชีด้วย</span>
                         <i class="fab fa-google fa-2x align-middle cursor-pointer ml-2"
                            data-toggle="modal" data-target="#social-create-modal"></i>
                         <i class="fab fa-facebook-square fa-2x align-middle cursor-pointer ml-2"
@@ -168,7 +168,7 @@
                           <div class="modal-body">
                             <button type="button" class="d-block btn bg-atomic-tangerine text-white mx-auto"
                                     data-dismiss="modal" @click="addStep(1)">
-                              Create account with social authenticator
+                              สร้างบัญชีด้วย Social authenticator
                             </button>
                           </div>
                         </div>
@@ -193,18 +193,18 @@
                     </template>
                     <template v-if="input.type === 'select'">
                       <select class="form-control">
-                        <option>Thailand</option>
+                        <option>ประเทศไทย</option>
                       </select>
                     </template>
                   </div>
                 </div>
                   <button type="button" class="d-block d-sm-none w-100 btn bg-atomic-tangerine text-white mt-2 mx-auto"
                           @click="addStep(3)">
-                    Continue
+                    ถัดไป
                   </button>
                   <button type="button" class="d-none d-sm-block btn bg-atomic-tangerine text-white mt-2 mx-auto"
                           @click="addStep(3)">
-                    Continue
+                    ถัดไป
                   </button>
                 </template>
 
@@ -218,11 +218,11 @@
                   <credit-card-adder></credit-card-adder>
                   <button type="button" class="d-block d-sm-none w-100 btn bg-atomic-tangerine text-white mt-2 mx-auto"
                           @click="addStep(4)">
-                    Pay {{ plan.total }} {{ plan.frequency }}
+                    ชำระ {{ plan.total }} {{ plan.frequency }}
                   </button>
                   <button type="button" class="d-none d-sm-block btn bg-atomic-tangerine text-white mt-2 mx-auto"
                           @click="addStep(4)">
-                    Pay {{ plan.total }} {{ plan.frequency }}
+                    ชำระ {{ plan.total }} {{ plan.frequency }}
                   </button>
                 </template>
 
@@ -280,25 +280,25 @@
             case 1:
               return '';
             case 2:
-              return 'Customer';
+              return 'บัญชี้ผู้ใช้';
             case 3:
-              return 'Variant';
+              return 'ตัวเลือกสินค้า';
             case 4:
             case 5:
-              return 'Shipping';
+              return 'การจัดส่งสินค้า';
           }
         },
         currentStep() {
           switch (this.step) {
             case 1:
-              return 'Customer';
+              return 'บัญชี้ผู้ใช้';
             case 2:
-              return 'Variant';
+              return 'ตัวเลือกสินค้า';
             case 3:
-              return 'Shipping';
+              return 'การจัดส่งสินค้า';
             case 4:
             case 5:
-              return 'Payment';
+              return 'ชำระเงิน';
           }
         },
       },
@@ -309,11 +309,11 @@
           planName: 'Double Premium',
           planDescription: 'เพียง subscribe รายปี (12 เดือน) กับ Justino วันนี้' +
             'สินค้าก็จะมาอยู่หน้าบ้านของคุณในราคาที่ประหยัดลดสูงสุดถึง 12% จากราคาปกติ',
-          frequency: 'Every month',
-          duration: '12 months',
+          frequency: 'ทุกเดือน',
+          duration: '12 เดือน',
           productList: [
-            { name: 'Cat Food (4 kg) x1', price: '฿500' },
-            { name: 'Cat Food (4 kg) x1', price: '฿500' },
+            { name: 'อาหารแมวแบบเม็ด (4 กก.) x1', price: '฿700' },
+            { name: 'โปรตีนเสริมสำหรับแมว x1', price: '฿300' },
           ],
           total: '฿1,000',
         },
@@ -333,7 +333,7 @@
             district: null,
             province: null,
             zipCode: null,
-            country: 'Thailand',
+            country: 'ประเทศไทย',
             phoneNo: null,
           },
           payment: {
@@ -341,16 +341,16 @@
           }
         },
         shippingInputs: [
-          { key: 'firstName', label: 'First name', type: 'text', required: true },
-          { key: 'lastName', label: 'Last name', type: 'text', required: true },
-          { key: 'title', label: 'Title', type: 'text', required: false },
-          { key: 'address', label: 'Address', type: 'text', required: true },
-          { key: 'subdistrict', label: 'Subdistrict', type: 'text', required: true },
-          { key: 'district', label: 'District', type: 'text', required: true },
-          { key: 'province', label: 'Province', type: 'text', required: true },
-          { key: 'zipCode', label: 'Zip Code', type: 'text', required: true },
-          { key: 'country', label: 'Country', type: 'select', required: true },
-          { key: 'phoneNo', label: 'Phone Numner', type: 'text', required: true },
+          { key: 'firstName', label: 'ชื่อ', type: 'text', required: true },
+          { key: 'lastName', label: 'นามสกุล', type: 'text', required: true },
+          { key: 'title', label: 'คำนำหน้า', type: 'text', required: false },
+          { key: 'address', label: 'ที่อยู่', type: 'text', required: true },
+          { key: 'subdistrict', label: 'ตำบล/แขวง', type: 'text', required: true },
+          { key: 'district', label: 'อำเภอ/เขต', type: 'text', required: true },
+          { key: 'province', label: 'จังหวัด', type: 'text', required: true },
+          { key: 'zipCode', label: 'รหัสไปรษณีย์', type: 'text', required: true },
+          { key: 'country', label: 'ประเทศ', type: 'select', required: true },
+          { key: 'phoneNo', label: 'โทรศัพท์มือถือ', type: 'text', required: true },
         ],
         creditCards: [
           { brand: 'visa', lastFourDigits: '4 2 4 2', expire: '5/2022' },
