@@ -35,20 +35,43 @@
                       <input type="text" class="form-control">
                       <div class="invalid-feedback">Please provide a valid email address.</div>
                     </div>
-                    <div class="col-auto mb-3">
+                    <div class="col-auto mb-3 mx-auto">
                       <button type="button" class="btn bg-atomic-tangerine text-white"
                               @click="addStep(1)">
                         ซื้อสินค้าด้วย Email นี้
                       </button>
                     </div>
                   </div>
-                  <span class="h7">
-                    คุณมีบัญชีอยู่แล้ว?
-                    <a class="text-primary cursor-pointer"
-                       @click="customerDisplay = 'login'">
-                      ลงชื่อเข้าใช้ตอนนี้
-                    </a>
-                  </span>
+                  <div class="row align-items-center">
+                    <div class="col-12 col-sm-auto mr-auto text-center text-sm-left">
+                      <span class="h7">
+                        คุณมีบัญชีอยู่แล้ว?
+                        <a class="text-primary cursor-pointer"
+                           @click="customerDisplay = 'login'">
+                          ลงชื่อเข้าใช้ตอนนี้
+                        </a>
+                      </span>
+                    </div>
+                    <div class="col-12 col-sm-auto social-container mt-3 mt-sm-0 text-center">
+                      <span class="h7 align-middle">หรือดำเนินการต่อด้วย</span>
+                      <i class="fab fa-google fa-2x align-middle cursor-pointer ml-2"
+                         data-toggle="modal" data-target="#social-sign-modal"></i>
+                      <i class="fab fa-facebook-square fa-2x align-middle cursor-pointer ml-2"
+                         data-toggle="modal" data-target="#social-sign-modal"></i>
+                    </div>
+                  </div>
+                  <div id="social-guest-modal" class="modal fade">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                      <div class="modal-content">
+                        <div class="modal-body">
+                          <button type="button" class="d-block btn bg-atomic-tangerine text-white mx-auto"
+                                  data-dismiss="modal" @click="addStep(1)">
+                            ดำเนินต่อไปด้วย Social authenticator
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </template>
                 <template v-if="customerDisplay === 'login'">
                   <span class="h7">
