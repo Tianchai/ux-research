@@ -138,8 +138,8 @@ Vue.component('variant-selector', {
     },
     onInput() {
       try {
-        if (this.quantity > 1) this.quantity = 1;
-        if (this.quantity < 0) this.quantity = 0;
+        if (this.quantity >= 1) this.quantity = 1;
+        if (this.quantity <= 0) this.quantity = 0;
       } catch (e) {
         this.quantity = 0;
       }
